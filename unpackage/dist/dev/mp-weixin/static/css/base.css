@@ -1,0 +1,44 @@
+uni-page-body {
+	width: 100%;
+	height: 100%;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.wrap {
+	width: 100%;
+	height: 100%;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.color-999 {
+	color: #999999;
+}
+
+.color-666 {
+	color: #666666;
+}
+.color-333 {
+	color: #333333;
+}
+.ml20{
+	margin-left: 20rpx;
+}
+.mr20{
+	margin-right: 20rpx;
+}

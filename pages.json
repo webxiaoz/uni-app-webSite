@@ -1,0 +1,69 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": " ",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom", //设置为custom后不展示导航栏
+				"navigationBarBackgroundColor": "#2979ff",
+				"backgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/dashboard/dashboard",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"backgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+			}
+
+		}, {
+			"path": "pages/orderPage/orderPage",
+			"style": {
+				"navigationBarTitleText": "订单",
+				"navigationBarBackgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white", //导航栏标题颜色及状态栏前景颜色，仅支持 black/white
+				"enablePullDownRefresh": true
+			}
+
+		}
+	],
+	"tabBar": {
+		// "custom":true,
+		// "color": "#7A7E83",
+		// "selectedColor": "#3cc51f",
+		// "borderStyle": "black",
+		// "backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/dashboard/dashboard",
+			// "iconPath": "static/img/homeDefault.png",
+			// "selectedIconPath": "static/img/homeActive.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/mine/mine",
+			// "iconPath": "static/img/homeDefault.png",
+			// "selectedIconPath": "static/img/homeActive.png",
+			"text": "我的"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTitleText": "",
+		"navigationBarTextStyle": "black",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	}
+}
