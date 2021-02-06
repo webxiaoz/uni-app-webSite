@@ -21,7 +21,6 @@ const request = function(options) {
 			};
 		} else {
 			//此处如果无token情况下可以进行跳转
-			console.log('无token---请求');
 			if (whiteApi.indexOf(curRoute) !== -1) {
 				/**
 				 * 此处不做操作（白名单地址不做强制跳转）

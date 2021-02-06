@@ -34,16 +34,18 @@
   color: #FFFFFF;
 }
 .wrap .logo.data-v-b237504c {
-  width: 100rpx;
-  height: 100rpx;
-  background-color: #fff;
+  width: 120rpx;
+  height: 120rpx;
+  background: url("https://jinfu-my-oss.oss-cn-hangzhou.aliyuncs.com/test/20210206/31404f52ee344d39b29264fb0949b762.jpg") no-repeat;
+  background-size: 100% 100%;
+  border-radius: 16rpx;
   text-align: center;
   margin: 300rpx auto 100rpx auto;
 }
 .wrap .webText.data-v-b237504c {
   height: 80rpx;
   color: #FFFFFF;
-  font-size: 18px;
+  font-size: 36rpx;
   font-weight: bold;
   margin: 0 auto;
   text-align: center;
@@ -56,6 +58,8 @@
   display: inline-block;
   padding: 24rpx;
   margin-left: 24rpx;
+  font-size: 30rpx;
+  font-weight: bold;
 }
 .wrap .tab .active.data-v-b237504c {
   border-bottom: 2rpx solid #FFFFFF;

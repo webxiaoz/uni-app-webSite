@@ -4,6 +4,7 @@
   "usingComponents": {
     "u-grid": "/node-modules/uview-ui/components/u-grid/u-grid",
     "u-grid-item": "/node-modules/uview-ui/components/u-grid-item/u-grid-item",
+    "u-loading": "/node-modules/uview-ui/components/u-loading/u-loading",
     "u-toast": "/node-modules/uview-ui/components/u-toast/u-toast"
   }
 }

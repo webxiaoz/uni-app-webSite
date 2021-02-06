@@ -3,19 +3,19 @@
 		<view class="logo"></view>
 		<view class="webText">管理后台</view>
 		<view class="tab">
-			<view class="tab-item" :class="{active:activeIndex === 1}" @click="activeIndex = 1">登录</view>
-			<view class="tab-item" :class="{active:activeIndex === 2}" @click="activeIndex = 2">注册</view>
+			<view class="tab-item" :class="{active:activeIndex === 1}" @click.native="activeIndex = 1">登录</view>
+			<view class="tab-item" :class="{active:activeIndex === 2}" @click.native="activeIndex = 2">注册</view>
 		</view>
 		<view class="loginBox">
 			<u-form :model="postForm" ref="postForm" :error-type="errorType" :label-style="labelStyle">
 				<u-form-item label="账号" prop="account">
-					<u-input v-model="postForm.account" placeholder-style="color:#fff" />
+					<u-input v-model="postForm.account" placeholder="请输入账号" placeholder-style="color:#fff" />
 				</u-form-item>
 				<u-form-item label="密码" prop="password">
-					<u-input v-model="postForm.password" type="password" placeholder-style="color:#fff"/>
+					<u-input v-model="postForm.password" placeholder="请输入密码" type="password" placeholder-style="color:#fff" />
 				</u-form-item>
 				<u-form-item label="邮箱" prop="email" v-if="activeIndex === 2">
-					<u-input v-model="postForm.email" placeholder-style="color:#fff"/>
+					<u-input v-model="postForm.email" placeholder="请输入邮箱" placeholder-style="color:#fff" />
 				</u-form-item>
 			</u-form>
 		</view>
@@ -32,11 +32,11 @@
 	export default {
 		data() {
 			return {
-				activeIndex:1,
-				isRegister:false,
+				activeIndex: 1,
+				isRegister: false,
 				errorType: ['border-bottom', 'toast'],
 				labelStyle: {
-					color:'#fff'
+					color: '#fff'
 				},
 				postForm: {
 					account: '',
@@ -59,7 +59,14 @@
 						required: true,
 						message: '请输入邮箱地址',
 						trigger: 'blur'
-					}]
+					}, {
+						pattern: /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/,
+						// 正则检验前先将值转为字符串
+						transform(value) {
+							return String(value);
+						},
+						message: '请输入正确的邮箱地址'
+					}, ]
 				}
 			};
 		},
@@ -70,7 +77,7 @@
 					if (valid) {
 						// console.log('验证通过');
 						uni.showLoading({
-							title:'登录中...'
+							title: '登录中...'
 						})
 						let params = that.postForm;
 						that.$request({
@@ -87,7 +94,7 @@
 											that.$refs.uToast.show({
 												title: '登录成功',
 												type: 'success',
-												isTab:true,
+												isTab: true,
 												url: '/pages/dashboard/dashboard'
 											})
 										}
@@ -111,7 +118,7 @@
 				this.$refs[formName].validate(valid => {
 					if (valid) {
 						uni.showLoading({
-							title:'注册中...'
+							title: '注册中...'
 						})
 						// console.log('验证通过');
 						let params = this.postForm;
@@ -126,7 +133,7 @@
 										title: '注册成功',
 										type: 'success',
 									})
-									this.isRegister = false;
+									this.activeIndex = 1;
 								} else {
 									uni.hideLoading();
 									this.$refs.uToast.show({
@@ -158,38 +165,49 @@
 		background-size: 100% 100%;
 		position: absolute;
 		color: #FFFFFF;
-		.logo{
-			width: 100rpx;
-			height: 100rpx;
-			background-color: #fff;
+
+		.logo {
+			width: 120rpx;
+			height: 120rpx;
+			background: url('https://jinfu-my-oss.oss-cn-hangzhou.aliyuncs.com/test/20210206/31404f52ee344d39b29264fb0949b762.jpg') no-repeat;
+			background-size: 100% 100%;
+			border-radius: 16rpx;
 			text-align: center;
 			margin: 300rpx auto 100rpx auto;
 		}
-		.webText{
+
+		.webText {
 			height: 80rpx;
 			color: #FFFFFF;
-			font-size: 18px;
+			font-size: 36rpx;
 			font-weight: bold;
 			margin: 0 auto;
 			text-align: center;
 		}
-		.tab{
+
+		.tab {
 			height: 120rpx;
 			width: 100%;
-			.tab-item{
+
+			.tab-item {
 				display: inline-block;
 				padding: 24rpx;
 				margin-left: 24rpx;
+				font-size: 30rpx;
+				font-weight: bold;
 			}
-			.active{
+
+			.active {
 				border-bottom: 2rpx solid #FFFFFF;
 			}
 		}
+
 		.loginBox {
 			width: 100%;
-			padding: 0 24rpx;	
+			padding: 0 24rpx;
 		}
-		.loginBtn{
+
+		.loginBtn {
 			margin-top: 60rpx;
 			padding: 0 24rpx;
 		}

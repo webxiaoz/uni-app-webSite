@@ -8,6 +8,9 @@ App.mpType = 'app';
 import uView from "uview-ui";
 Vue.use(uView);
 
+import moment from "moment";
+Vue.prototype.$moment = moment;
+
 //配置全局接口地址
 import serverConfig from "./static/js/serverConfig.js"
 Vue.prototype.$baseUrl = serverConfig.api;

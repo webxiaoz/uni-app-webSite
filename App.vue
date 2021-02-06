@@ -11,15 +11,18 @@
 					}
 				});
 			}else{
-				uni.showToast({
-					title:'登录过期！',
-					icon:'none',
-					success:function(){
-						uni.navigateTo({
-						    url: '/pages/login/login'
-						});
-					}
-				})
+				uni.reLaunch({
+				    url: '/pages/login/login'
+				});
+				// uni.showToast({
+				// 	title:'登录过期！',
+				// 	icon:'none',
+				// 	success:function(){
+						// uni.navigateTo({
+						//     url: '/pages/login/login'
+						// });
+				// 	}
+				// })
 			}
 		},
 		onShow: function() {
