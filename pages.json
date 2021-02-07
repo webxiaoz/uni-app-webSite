@@ -14,7 +14,8 @@
 		{
 			"path": "pages/dashboard/dashboard",
 			"style": {
-				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom", //设置为custom后不展示导航栏
+				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 
@@ -38,7 +39,25 @@
 			}
 
 		}
-	],
+	    ,{
+            "path" : "pages/waterfall/waterfall",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "图片",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/webView/webView",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "GitHub",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"tabBar": {
 		// "custom":true,
 		// "color": "#7A7E83",

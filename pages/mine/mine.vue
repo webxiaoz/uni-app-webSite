@@ -1,7 +1,7 @@
 <template>
 	<view class="wrap">
 		<view class="nav">
-			<u-avatar src="http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg" mode="square" style="margin-right: 10rpx;"></u-avatar>
+			<u-avatar src="https://jinfu-my-oss.oss-cn-hangzhou.aliyuncs.com/test/20210207/f6a528a6c9d8458fbad476aa6f13a1b5.jpeg" mode="square" style=""></u-avatar>
 			<view class="user_info">
 				<view class="userName">小拓拓</view>
 				<view class="account">1425640560</view>
@@ -93,9 +93,9 @@
 			display: flex;
 			align-items: center;
 
-			.u-avatar {
+			u-avatar {
 				display: inline-block;
-				margin-right: 24rpx;
+				margin-right: 24rpx !important;
 				color: #FFFFFF;
 			}
 

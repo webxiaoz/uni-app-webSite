@@ -1,5 +1,11 @@
 <template>
 	<view class="wrap">
+		<u-navbar :is-back="false" title=" " :background="background">
+			<view class="slot-wrap">
+				<!-- <u-search shape="round" v-model="keyWords" bg-color="#fff" placeholder-color="#000" color="#000" :show-action="false"></u-search> -->
+			</view>
+		</u-navbar>
+		<!-- 简要概括 -->
 		<u-grid :col="2" :border="false" color="#666666">
 			<u-grid-item style="">
 				<view class="grid_box">
@@ -50,6 +56,32 @@
 				</view>
 			</u-grid-item>
 		</u-grid>
+		<view class="container">
+			<view class="title">常用小功能</view>
+			<u-grid :col="4" :border="false">
+				<u-grid-item  @click="goWaterfall">
+					<u-icon name="photo" :size="46"></u-icon>
+					<view class="grid-text">图片</view>
+				</u-grid-item>
+				<u-grid-item @click="goGitHub">
+					<u-icon name="github-circle-fill" :size="46"></u-icon>
+					<view class="grid-text">GitHub</view>
+				</u-grid-item>
+				<u-grid-item @click="getQRcode()">
+					<u-icon name="scan" :size="46"></u-icon>
+					<view class="grid-text">扫一扫</view>
+				</u-grid-item>
+				<u-grid-item @click="goOrder">
+					<u-icon name="order" :size="46"></u-icon>
+					<view class="grid-text">订单</view>
+				</u-grid-item>
+			</u-grid>
+			<u-popup v-model="showCodeText" mode="bottom" height="300px" border-radius="14" :closeable="true">
+						<view style="word-break: break-all;padding: 40px 12px;">
+							<view style="font-weight: bold;padding-right: 10rpx;">条码内容:</view><text style="color: #59db44;">{{codeText}}</text>
+						</view>
+					</u-popup>
+		</view>
 		<u-toast ref="uToast" />
 	</view>
 </template>
@@ -58,8 +90,14 @@
 	export default {
 		data() {
 			return {
+				keyWords: '',
 				payInfo: {},
 				showNumLoading: true,
+				background: {
+					backgroundImage: 'linear-gradient(90deg, #00c6ff,#0072ff)',
+				},
+				codeText:'',
+				showCodeText:false,
 			};
 		},
 		methods: {
@@ -91,6 +129,45 @@
 						})
 					}
 				})
+			},
+			/**
+			 * 跳转到瀑布流
+			 */
+			goWaterfall() {
+				uni.navigateTo({
+					url: "../waterfall/waterfall"
+				})
+			},
+			/**
+			 * 跳转GitHub页面
+			 */
+			goGitHub(){
+				uni.navigateTo({
+					url: "../webView/webView"
+				})
+			},
+			/**
+			 * QRCode
+			 */
+			getQRcode(){
+				let that = this;
+				// 允许从相机和相册扫码
+				uni.scanCode({
+				    success: function (res) {
+				        console.log('条码类型：' + res.scanType);
+				        console.log('条码内容：' + res.result);
+						that.codeText = res.result;
+						that.showCodeText = true;
+				    }
+				});
+			},
+			/**
+			 * 订单
+			 */
+			goOrder(){
+				uni.navigateTo({
+					url:"../orderPage/orderPage"
+				})
 			}
 		},
 		onShow: function() {
@@ -101,6 +178,16 @@
 
 <style lang="scss" scoped>
 	.wrap {
+
+		.slot-wrap {
+			display: flex;
+			align-items: center;
+			/* 如果您想让slot内容占满整个导航栏的宽度 */
+			/* flex: 1; */
+			/* 如果您想让slot内容与导航栏左右有空隙 */
+			padding: 0 30rpx;
+		}
+
 		.u-grid-item {
 
 			// padding: 20rpx;
@@ -109,8 +196,8 @@
 
 				.grid_item {
 					// width: 100%;
-					height: 160rpx;
-					border-radius: 30rpx;
+					height: 120rpx;
+					border-radius: 16rpx;
 					text-align: center;
 					display: flex;
 					align-items: center;
@@ -136,6 +223,11 @@
 				}
 			}
 
+		}
+
+		.title {
+			font-size: 36rpx;
+			margin: 24rpx;
 		}
 	}
 </style>
