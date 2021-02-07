@@ -59,29 +59,31 @@
 		<view class="container">
 			<view class="title">常用小功能</view>
 			<u-grid :col="4" :border="false">
-				<u-grid-item  @click="goWaterfall">
-					<u-icon name="photo" :size="46"></u-icon>
+				<u-grid-item @click="goWaterfall">
+					<u-icon name="photo" color="#2979ff" :size="46"></u-icon>
 					<view class="grid-text">图片</view>
 				</u-grid-item>
 				<u-grid-item @click="goGitHub">
-					<u-icon name="github-circle-fill" :size="46"></u-icon>
+					<u-icon name="github-circle-fill" color="#2979ff" :size="46"></u-icon>
 					<view class="grid-text">GitHub</view>
 				</u-grid-item>
 				<u-grid-item @click="getQRcode()">
-					<u-icon name="scan" :size="46"></u-icon>
+					<u-icon name="scan" color="#2979ff" :size="46"></u-icon>
 					<view class="grid-text">扫一扫</view>
 				</u-grid-item>
 				<u-grid-item @click="goOrder">
-					<u-icon name="order" :size="46"></u-icon>
+					<u-icon name="order" color="#2979ff" :size="46"></u-icon>
 					<view class="grid-text">订单</view>
 				</u-grid-item>
 			</u-grid>
-			<u-popup v-model="showCodeText" mode="bottom" height="300px" border-radius="14" :closeable="true">
-						<view style="word-break: break-all;padding: 40px 12px;">
-							<view style="font-weight: bold;padding-right: 10rpx;">条码内容:</view><text style="color: #59db44;">{{codeText}}</text>
-						</view>
-					</u-popup>
+			<u-tabs ref="tabs" :list="tabList" name="cate_name" count="cate_count" active-color="#2979ff" inactive-color="#606266"
+			 font-size="30" :current="current" @change="changeTab"></u-tabs>
 		</view>
+		<u-popup v-model="showCodeText" mode="bottom" height="300px" border-radius="14" :closeable="true">
+			<view style="word-break: break-all;padding: 40px 12px;">
+				<view style="font-weight: bold;padding-right: 10rpx;">条码内容:</view><text style="color: #59db44;">{{codeText}}</text>
+			</view>
+		</u-popup>
 		<u-toast ref="uToast" />
 	</view>
 </template>
@@ -96,8 +98,25 @@
 				background: {
 					backgroundImage: 'linear-gradient(90deg, #00c6ff,#0072ff)',
 				},
-				codeText:'',
-				showCodeText:false,
+				codeText: '',
+				showCodeText: false,
+				tabList: [{
+					cate_name: '关注'
+				}, {
+					cate_name: '抗疫'
+				}, {
+					cate_name: '推荐',
+					cate_count: 5
+				}, {
+					cate_name: '美景',
+					cate_count: 5
+				}, {
+					cate_name: '电影',
+					cate_count: 5
+				} ,{
+					cate_name: '北京'
+				}],
+				current: 0
 			};
 		},
 		methods: {
@@ -141,7 +160,7 @@
 			/**
 			 * 跳转GitHub页面
 			 */
-			goGitHub(){
+			goGitHub() {
 				uni.navigateTo({
 					url: "../webView/webView"
 				})
@@ -149,25 +168,31 @@
 			/**
 			 * QRCode
 			 */
-			getQRcode(){
+			getQRcode() {
 				let that = this;
 				// 允许从相机和相册扫码
 				uni.scanCode({
-				    success: function (res) {
-				        console.log('条码类型：' + res.scanType);
-				        console.log('条码内容：' + res.result);
+					success: function(res) {
+						console.log('条码类型：' + res.scanType);
+						console.log('条码内容：' + res.result);
 						that.codeText = res.result;
 						that.showCodeText = true;
-				    }
+					}
 				});
 			},
 			/**
 			 * 订单
 			 */
-			goOrder(){
+			goOrder() {
 				uni.navigateTo({
-					url:"../orderPage/orderPage"
+					url: "../orderPage/orderPage"
 				})
+			},
+			/**
+			 * tab
+			 */
+			changeTab(index){
+				this.current = index;
 			}
 		},
 		onShow: function() {

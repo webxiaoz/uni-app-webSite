@@ -1,6 +1,6 @@
 <template>
 	<view class="wrap">
-		<view class="nav">
+		<view class="nav" @click.native="goSetting()">
 			<u-avatar src="https://jinfu-my-oss.oss-cn-hangzhou.aliyuncs.com/test/20210207/f6a528a6c9d8458fbad476aa6f13a1b5.jpeg" mode="square" style=""></u-avatar>
 			<view class="user_info">
 				<view class="userName">小拓拓</view>
@@ -63,6 +63,14 @@
 						})
 					}
 				});
+			},
+			/**
+			 * 设置页面
+			 */
+			goSetting(){
+				uni.navigateTo({
+					url:"./userSetting"
+				})
 			},
 			/**
 			 * 菜单跳转
