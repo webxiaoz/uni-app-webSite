@@ -279,7 +279,7 @@
 				console.log(path)
 				// 可以在此上传到服务端
 				uni.uploadFile({
-					url: that.$baseUrl+'/api/upload/uploadImg',
+					url: that.$baseUrl+'/api/oss/upload',
 					header: {
 						"Content-Type": "multipart/form-data",
 						'token': token,
