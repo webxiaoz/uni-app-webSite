@@ -1,8 +1,0 @@
-/* 我的界面cell单元格圆角 */
-.u-cell-item-box{
-	border-radius: 16rpx;
-}
-/* 登录页面输入框输入颜色 */
-.loginBox .u-input__input{
-	color: #FFFFFF !important;
-}
