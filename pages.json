@@ -45,7 +45,7 @@
 				"navigationBarTitleText": "头像裁剪",
 				"navigationBarBackgroundColor": "#000000"
 			}
-		},{
+		}, {
 			"path": "pages/orderPage/orderPage",
 			"style": {
 				"navigationBarTitleText": "订单",
@@ -54,26 +54,40 @@
 				"enablePullDownRefresh": true
 			}
 
+		}, {
+			"path": "pages/waterfall/waterfall",
+			"style": {
+				"navigationBarTitleText": "图片",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/webView/webView",
+			"style": {
+				"navigationBarTitleText": "GitHub",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/staffManagement/staffManagement",
+			"style": {
+				"navigationBarTitleText": "用户管理",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#2979ff",
+				"backgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+			}
+		}, {
+			"path": "pages/staffManagement/addEmployee",
+			"style": {
+				"navigationBarTitleText": "添加用户",
+				"enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#2979ff",
+				"backgroundColor": "#2979ff",
+				"navigationBarTextStyle": "white"
+			}
 		}
-	    ,{
-            "path" : "pages/waterfall/waterfall",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "图片",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/webView/webView",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "GitHub",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+	],
 	"tabBar": {
 		// "custom":true,
 		// "color": "#7A7E83",
