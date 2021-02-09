@@ -47,7 +47,7 @@
 				</view>
 			</view> -->
 			<u-select v-model="show" confirm-color="#2979ff" @confirm="getChoicePositionData" :list="positionData"></u-select>
-			<view @click.stop.native="saveUserFun" class="saveBtn" :custom-style="customStyle">
+			<view @click.stop.native="saveUserFun" type="primary" class="saveBtn" :custom-style="customStyle">
 				保存
 			</view>
 		</u-form>
@@ -381,7 +381,7 @@
 			width: calc(100% - 48rpx);
 			height: 80rpx;
 			border-radius: 10rpx;
-			background: #00AE67;
+			background: #2979ff;
 			position: absolute;
 			left: 24rpx;
 			bottom: 50rpx;
