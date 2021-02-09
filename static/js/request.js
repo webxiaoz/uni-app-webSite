@@ -32,9 +32,9 @@ const request = function(options) {
 					icon: 'none',
 					success() {
 						uni.removeStorageSync('TOKEN');
-						uni.navigateTo({
-							url: '/pages/login/login'
-						});
+						// uni.navigateTo({
+						// 	url: '/pages/login/login'
+						// });
 					}
 				});
 			}

@@ -4,12 +4,12 @@
 			console.log('App Launch');
 			const token = uni.getStorageSync('TOKEN');
 			if(token){
-				uni.switchTab({
-					url: '/pages/dashboard/dashboard',
-					success() {
-						uni.hideLoading();
-					}
-				});
+				// uni.switchTab({
+				// 	url: '/pages/dashboard/dashboard',
+				// 	success() {
+				// 		uni.hideLoading();
+				// 	}
+				// });
 			}else{
 				uni.reLaunch({
 				    url: '/pages/login/login'

@@ -206,7 +206,7 @@
 			sureDelUserFun () {
 				let that = this;
 				that.$request({
-					url:'/system/user/delete/'+ that.delID,
+					url:'/api/users/del/'+ that.delID,
 					method: "DELETE",
 					success: function(res){
 						let data = res.data || {};
@@ -306,9 +306,9 @@
 			bottom: 100rpx;
 			right: 20rpx;
 			font-size: 80rpx;
-			color: #01AD67;
+			color: #2979ff;
 			border-radius: 80rpx;
-			border: 1px solid #01AD67;
+			border: 1px solid #2979ff;
 		}
 		.remove {
 			width: 100rpx;

@@ -1,6 +1,15 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/dashboard/dashboard",
+			"style": {
+				"navigationStyle": "custom", //设置为custom后不展示导航栏
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
 			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": " ",
@@ -12,14 +21,6 @@
 			}
 		},
 		{
-			"path": "pages/dashboard/dashboard",
-			"style": {
-				"navigationStyle": "custom", //设置为custom后不展示导航栏
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
 			"path": "pages/mine/mine",
 			"style": {
 				"navigationBarTitleText": "我的",
